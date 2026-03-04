@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado Final</title>
+    <link rel="stylesheet" href="calcular.css">
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <div class="calculadora-box result-page">
+            <h2>El resultado es:</h2>
+            <div class="valor-final" id="valor">0</div>
+            
+            <hr>
+            <button class="btn-limpiar" onclick="window.location.href='calculadora.html'">Volver</button>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const res = params.get('res');
+        
+        if (res !== null) {
+            document.getElementById('valor').innerText = res;
+        }
+    </script>
+</body>
+</html>

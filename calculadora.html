@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora💕</title>
+    <link rel="stylesheet" href="calcular.css">
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <div class="calculadora-box">
+            <div class="inputs-row">
+                <input type="number" id="n1" placeholder="0">
+                <input type="number" id="n2" placeholder="0">
+            </div>
+
+            <div class="operaciones-grid">
+                <button onclick="operar('+')">➕</button>
+                <button onclick="operar('-')">➖</button>
+                <button onclick="operar('*')">✖️</button>
+                <button onclick="operar('/')">➗</button>
+            </div>
+
+            <button class="btn-limpiar" onclick="limpiar()">Limpiar 🐻</button>
+
+            <div class="resultado-label">
+                <span>Resultado 🧸</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function operar(operador) {
+    const n1 = parseFloat(document.getElementById('n1').value);
+    const n2 = parseFloat(document.getElementById('n2').value);
+    if (isNaN(n1) || isNaN(n2)) {
+        alert("Por favor, escribe dos números primero.");
+        return;
+    }
+
+    let resultado;
+    switch (operador) {
+        case '+': resultado = n1 + n2; break;
+        case '-': resultado = n1 - n2; break;
+        case '*': resultado = n1 * n2; break;
+        case '/': 
+            resultado = (n2 !== 0) ? (n1 / n2) : "Error (Div 0)";
+            break;
+    }
+    window.location.href = `resultado.html?res=${encodeURIComponent(resultado)}`;
+}
+
+function limpiar() {
+    document.getElementById('n1').value = "";
+    document.getElementById('n2').value = "";
+}
+    </script>
+</body>
+</html>
